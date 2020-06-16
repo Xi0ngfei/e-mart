@@ -1,0 +1,136 @@
+<p>Update A Item</p>
+<ul>
+  <li>Product Name:<input type="" name="bname" id="bname" value="" placeholder="not blank" /></li>
+  <li>Product Price:<input type="" name="bprice" id="bprice" value="" placeholder="greater than 0" /></li>
+  <li>Description:<input type="" name="bnum" id="bnum" value="" placeholder="" /></li>
+  <input type="button" id="add" value="Upload" />
+</ul>
+<input type="button" id="" value="Delete all" onclick="delAll()" />
+<br>
+<br>
+<p>Existing Items</p>
+<table border="0" cellpadding="0" cellspacing="10" >
+  <tr>
+      <td><input type="checkbox" id="" value="" onclick="changbj(this)" /></td>
+      <td><img src="../assets/imgs/iphone.jpg" height=80 width=80/></td>
+      <td>iPhone</td>
+      <td>￥9000</td>
+      <td>
+          <input type="button" id="" value="-" onclick="reduce1(this.amount)" />
+          <input type="text" id="" value="1" />
+          <input type="button" id="" value="+" onclick="plus(this)" />
+      </td>
+      <td><input type="button" value="delete" onclick="del(this)"  /></td>
+  </tr>
+
+  <tr>
+      <td><input type="checkbox" id="" value="" onclick="" /></td>
+      <td><img src="../assets/imgs/ipad.jpg" height=80 width=80/></td>
+      <td>ipad</td>
+      <td>￥2300</td>
+      <td>
+          <input type="button" id="" value="-" />
+          <input type="text" id="" value="1" />
+          <input type="button" id="" value="+" />
+      </td>
+      <td><input type="button" value="delete" onclick="del(this)"  /></td>
+  </tr>
+
+  <tr>
+    <td><input type="checkbox" id="" value="" onclick="changbj(this)" /></td>
+    <td><img src="../assets/imgs/mac.jpg" height=80 width=80/></td>
+    <td>macbook</td>
+    <td>￥9999</td>
+    <td>
+        <input type="button" id="" value="-" onclick="reduce(this)" />
+        <input type="text" id="" value="1" />
+        <input type="button" id="" value="+" onclick="plus(this)" />
+    </td>
+    <td><input type="button" value="delete" onclick="del(this)"  /></td>
+</tr>
+</table>
+
+
+<script type="text/javascript">
+
+  function del(obj){
+      var result = confirm("confirm delete?");
+
+      if (result) {
+          $(obj).parent().parent().remove();
+      }
+  }
+  function reduce1(m,index){
+    m-=1;
+    if(m<1){
+        $scope.movie.splice(index,1);
+    }else{
+        return m;
+    }
+  }
+
+
+
+
+    function delAll(){
+        var cbs = $("input:checked");
+        if (cbs.length==0) {
+            alert("please select!");
+        }else{
+            cbs.each(function(){
+            $(this).parent().parent().remove();
+        });
+        }
+    }
+    function plus(obj){
+        var eleNum = $(obj).prev("input");
+        var v = eleNum.val();
+        v++;
+        eleNum.val(v);
+
+    }
+
+    function reduce(obj){
+        var eleNum = $(obj).next("input");
+        var v = eleNum.val();
+        v--;
+        eleNum.val(v);
+    }
+
+    function changbj(obj){
+        if (obj.checked) {
+            $(obj).parent().parent().css("background-color","pink");
+        } else{
+            $(obj).parent().parent().css("background-color","white");
+        }
+    }
+
+    $(function(){
+        $("#add").click(function(){
+            var itemname=$("#bname").val();
+            var itemprice=$("#bprice").val();
+            var itemnum=$("#bnum").val();
+            if (itemname=="") {
+                alert("item name can not be null");
+                return;
+            }
+
+            if (itemprice=="" || itemprice<=0) {
+                alert("item name can not be null");
+                return;
+            }
+            var newtr=
+                "<tr>"+
+                    "<td><input type='checkbox' id='' value=''/></td>"+
+                    "<td><img src='img/a.png'/></td>"+
+                    "<td>"+itemname+"</td>"+
+                    "<td>￥"+itemprice+"</td>"+
+                    "<td><input type='button' value='-' /><input type='text' value='"+itemnum+"' /><input type='button' value='+' /></td>"+
+                    "<td>total:￥"+(itemprice*itemnum)+"</td>"+
+                    "<td><input type='button' value='delete' onclick='del(this)'  /></td>"+
+                "</tr>"
+
+            $("table").append(newtr);
+        });
+    });
+</script>
