@@ -1,0 +1,135 @@
+
+<h2>Update Item</h2>
+
+<ul>
+  <li>Product Name:<input type="" name="bname" id="bname" value="" placeholder="not blank" /></li>
+  <li>Product Price:<input type="" name="bprice" id="bprice" value="" placeholder="greater than 0" /></li>
+  <li>Description:<input type="" name="bnum" id="bnum" value="" placeholder="" /></li>
+  <input type="button" id="add" value="Upload" />
+</ul>
+<input type="button" id="" value="Delete all" onclick="delAll()" />
+<table border="0" cellpadding="0" cellspacing="10" >
+  <div>
+      <td><input type="checkbox" id="" value="" onclick="changbj(this)" /></td>
+      <td><img src="../assets/imgs/iphone.jpg" height=80 width=80/></td>
+      <td>iPhone</td>
+      <td>9900</td>
+      <td>
+          <input type="button" id="" value="-" onclick="reduce1(this.amount)" />
+          <input type="text" id="" value="20" />
+          <input type="button" id="" value="+" onclick="plus(this)" />
+      </td>
+      <td><input type="button" value="delete" onclick="del(this)"  /></td>
+  </div>
+  <div>
+      <td><input type="checkbox" id="" value="" onclick="" /></td>
+      <td><img src="../assets/imgs/macbook.jpg" height=80 width=80/></td>
+      <td>macbook</td>
+      <td>9999</td>
+      <td>
+          <input type="button" id="" value="-" />
+          <input type="text" id="" value="20" />
+          <input type="button" id="" value="+" />
+      </td>
+      <td><input type="button" value="delete" onclick="del(this)"  /></td>
+  </div>
+
+  <div>
+    <td><input type="checkbox" id="" value="" onclick="changbj(this)" /></td>
+    <td><img src="../assets/imgs/ipad.jpg" height=80 width=80/></td>
+    <td>ipad</td>
+    <td>3200</td>
+    <td>
+        <input type="button" id="" value="-" onclick="reduce(this)" />
+        <input type="text" id="" value="20" />
+        <input type="button" id="" value="+" onclick="plus(this)" />
+    </td>
+    <td><input type="button" value="delete" onclick="del(this)"  /></td>
+</div>
+</table>
+<script type="text/javascript">
+
+  function del(obj){
+      var result = confirm("您确定要删除吗?");
+
+      if (result) {
+          $(obj).parent().parent().remove();//删除
+      }
+  }
+  function reduce1(m,index){
+    m-=1;
+    if(m<1){
+                    $scope.movie.splice(index,1);
+                }else{
+                    return m;
+                }
+  }
+
+
+
+
+  function delAll(){
+      var cbs = $("input:checked");
+      if (cbs.length==0) {
+          alert("请选择!");
+      }else{
+          cbs.each(function(){
+              $(this).parent().parent().remove();
+          });
+        }
+
+}
+function plus(obj){
+    var eleNum = $(obj).prev("input");
+    var v = eleNum.val();
+    v++;
+    eleNum.val(v);
+
+}
+
+function reduce(obj){
+    var eleNum = $(obj).next("input");
+    var v = eleNum.val();
+            v--;
+            eleNum.val(v);
+
+        }
+
+        function changbj(obj){
+            if (obj.checked) {
+                $(obj).parent().parent().css("background-color","pink");
+            } else{
+                $(obj).parent().parent().css("background-color","white");
+            }
+          }
+
+$(function(){
+    $("#add").click(function(){
+        var bookname=$("#bname").val();
+        var bookprice=$("#bprice").val();
+        var booknum=$("#bnum").val();
+        if (bookname=="") {
+            alert("书名不能为空!");
+            return;
+        }
+
+        if (bookprice=="" || bookprice<=0) {
+            alert("书名不能为空!");
+            return;
+        }
+          var newtr=
+            "<tr>"+
+                "<td><input type='checkbox' id='' value=''/></td>"+
+                "<td><img src='img/a.png'/></td>"+
+                "<td>"+bookname+"</td>"+
+                "<td>￥"+bookprice+"</td>"+
+                "<td><input type='button' value='-' /><input type='text' value='"+booknum+"' /><input type='button' value='+' /></td>"+
+                "<td>小计:￥"+(bookprice*booknum)+"</td>"+
+                "<td><input type='button' value='删除' onclick='del(this)'  /></td>"+
+            "</tr>"
+
+                $("table").append(newtr);
+
+            });
+        });
+      </script>

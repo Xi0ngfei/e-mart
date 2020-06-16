@@ -1,0 +1,7 @@
+<a [routerLink]="['/']">
+  <h1>Apple-Store</h1>
+</a>
+
+<a *ngIf="adminUser" [routerLink]="['/addItem']">Add Item</a>
+<a class="button fancy-button" [routerLink]="['/login']">Sign in</a>
+<a class="button fancy-button" [routerLink]="['/cart']">Shopping-cart</a>

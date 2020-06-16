@@ -1,6 +1,6 @@
 <h3>Cart</h3>
 <p>
-  <a routerLink="/ship">Shipping Prices</a>
+  <a routerLink="/shipping">Shipping Prices</a>
 </p>
 
 <div class="cart-item" *ngFor="let item of items">
@@ -15,21 +15,15 @@
     </label>
     <input id="name" type="text" formControlName="name">
   </div>
-  <br>
-  <div>
-    <label for="phone">
-      phone
-    </label>
-    <input id="phone" type="text" formControlName="name">
-  </div>
-  <br>
+
   <div>
     <label for="address">
       Address
     </label>
     <input id="address" type="text" formControlName="address">
   </div>
-  <br>
-  <button class="button" type="submit">Submit</button>    
+
+
+  <button class="button" type="submit">Purchase</button>
 
 </form>
