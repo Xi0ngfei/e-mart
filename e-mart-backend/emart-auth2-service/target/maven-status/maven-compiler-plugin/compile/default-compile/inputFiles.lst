@@ -1,0 +1,8 @@
+/Users/zxf/Documents/GitHub/e-mart/e-mart-backend/emart-auth2-service/src/main/java/com/ibm/emart/auth/OAuthApplication.java
+/Users/zxf/Documents/GitHub/e-mart/e-mart-backend/emart-auth2-service/src/main/java/com/ibm/emart/auth/security/WebSecurityConfigurer.java
+/Users/zxf/Documents/GitHub/e-mart/e-mart-backend/emart-auth2-service/src/main/java/com/ibm/emart/auth/security/AuthUserDetailsService.java
+/Users/zxf/Documents/GitHub/e-mart/e-mart-backend/emart-auth2-service/src/main/java/com/ibm/emart/auth/security/JWTTokenEnhancer.java
+/Users/zxf/Documents/GitHub/e-mart/e-mart-backend/emart-auth2-service/src/main/java/com/ibm/emart/auth/security/JWTTokenStoreConfig.java
+/Users/zxf/Documents/GitHub/e-mart/e-mart-backend/emart-auth2-service/src/main/java/com/ibm/emart/auth/security/JWTOAuth2Config.java
+/Users/zxf/Documents/GitHub/e-mart/e-mart-backend/emart-auth2-service/src/main/java/com/ibm/emart/auth/entity/UserEntity.java
+/Users/zxf/Documents/GitHub/e-mart/e-mart-backend/emart-auth2-service/src/main/java/com/ibm/emart/auth/repository/UserRepository.java
