@@ -6,7 +6,9 @@
 	<modules>
 		<module>emart-auth2-service</module>
 		<module>emart-eureka-service</module>
-	</modules>
+		<module>emart-seller-service</module>
+		<module>emart-user-service</module>
+		<module>common</module>	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
