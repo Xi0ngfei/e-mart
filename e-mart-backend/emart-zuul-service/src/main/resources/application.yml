@@ -15,10 +15,9 @@ zuul:
       connect-timeout-millis: 30000
       socket-timeout-millis: 30000
    routes:
-      #需要放开
-      #emart-user-service: /cloud-user-service/**   #重启机器后要多等一段时间才访问，注册要有三次心跳后才注册成功
-      emart-auth-service: /cloud-auth-service/**
-      #emart-seller-service: /cloud-seller-service/**
+      emart-user-service: /emart-user-service/**   #重启机器后要多等一段时间才访问，注册要有三次心跳后才注册成功
+      emart-auth-service: /emart-auth-service/**
+      emart-seller-service: /emart-seller-service/**
 
 #      user-service:   #静态路由
 #         path: /cloud-simple-service/**
