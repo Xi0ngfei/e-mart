@@ -1,6 +1,6 @@
 node {
    stage('git clone') { // for display purposes
-     git branch: 'master', credentialsId:'github.com', url:'https://github.com/Xi0ngfei/e-mart/tree/master/e-mart-backend'
+     git branch: 'master', credentialsId:'github.com', url:'https://github.com/Xi0ngfei/e-mart-backend.git'
    }
    stage('Build') {
            //env.JAVA_HOME="${tool 'jdk1.8.0_231'}"
