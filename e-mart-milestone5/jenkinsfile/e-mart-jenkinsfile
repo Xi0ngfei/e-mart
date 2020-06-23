@@ -1,0 +1,36 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('pull emart code') {
+         steps {
+            checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/Xi0ngfei/e-mart.git']]])
+         }
+      }
+      stage('build emart project') {
+         steps {
+            dir('e-mart-backend/common') {
+                sh 'mvn clean package'
+            }
+            dir('e-mart-backend/emart-auth-service') {
+                sh 'mvn clean package'
+            }
+            dir('e-mart-backend/emart-auth2-service') {
+                sh 'mvn clean package'
+            }
+            dir('e-mart-backend/emart-eureka-service') {
+                sh 'mvn clean package'
+            }
+            dir('e-mart-backend/emart-seller-service') {
+                sh 'mvn clean package'
+            }
+            dir('e-mart-backend/emart-user-service') {
+                sh 'mvn clean package'
+            }
+            dir('e-mart-backend/emart-zuul-service') {
+                sh 'mvn clean package'
+            }
+         }
+      }
+   }
+}
